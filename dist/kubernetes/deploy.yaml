@@ -1061,6 +1061,8 @@ metadata:
     app.kubernetes.io/component: service
     app.kuberneres.io/owner: retail-store-sample
     app.kubernetes.io/managed-by: Helm
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-additional-resource-tags: Environment=prod,Company=ncgt,Product=eks,Bu=ncgt
 spec:
   type: LoadBalancer
   ports:
