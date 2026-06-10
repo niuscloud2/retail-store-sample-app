@@ -1,0 +1,48 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: ncgt-tools-sandbox-multi-pe
+
+resources:
+  - https://github.com/aws-containers/retail-store-sample-app/releases/latest/download/kubernetes.yaml
+
+patches:
+  - target:
+      kind: Deployment
+    patch: |-
+      - op: add
+        path: /spec/template/spec/nodeSelector
+        value:
+          workload-type: demo
+
+  - target:
+      kind: StatefulSet
+    patch: |-
+      - op: add
+        path: /spec/template/spec/nodeSelector
+        value:
+          workload-type: demo
+
+  - target:
+      kind: DaemonSet
+    patch: |-
+      - op: add
+        path: /spec/template/spec/nodeSelector
+        value:
+          workload-type: demo
+
+  - target:
+      kind: Job
+    patch: |-
+      - op: add
+        path: /spec/template/spec/nodeSelector
+        value:
+          workload-type: demo
+
+  - target:
+      kind: CronJob
+    patch: |-
+      - op: add
+        path: /spec/jobTemplate/spec/template/spec/nodeSelector
+        value:
+          workload-type: demo
