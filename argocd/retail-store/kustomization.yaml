@@ -13,7 +13,7 @@ patches:
       - op: add
         path: /spec/template/spec/nodeSelector
         value:
-          workload-type: demo
+          workload-type: demo-amd64
 
   - target:
       kind: StatefulSet
@@ -21,7 +21,7 @@ patches:
       - op: add
         path: /spec/template/spec/nodeSelector
         value:
-          workload-type: demo
+          workload-type: demo-amd64
 
   - target:
       kind: DaemonSet
@@ -29,7 +29,7 @@ patches:
       - op: add
         path: /spec/template/spec/nodeSelector
         value:
-          workload-type: demo
+          workload-type: demo-amd64
 
   - target:
       kind: Job
@@ -37,7 +37,7 @@ patches:
       - op: add
         path: /spec/template/spec/nodeSelector
         value:
-          workload-type: demo
+          workload-type: demo-amd64
 
   - target:
       kind: CronJob
@@ -45,4 +45,4 @@ patches:
       - op: add
         path: /spec/jobTemplate/spec/template/spec/nodeSelector
         value:
-          workload-type: demo
+          workload-type: demo-amd64
